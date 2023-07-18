@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] enemies;
+
+    private float[] posY = { -3.5f, -2f };
     
     // Start is called before the first frame update
     void Start()
@@ -24,24 +26,20 @@ public class EnemySpawner : MonoBehaviour
 
         while (true)
         {
-            int index = Random.Range(0, enemies.Length);
-            SpawnEnemy(index);
+            int enemyIndex = Random.Range(0, enemies.Length);
+            int posIndex = Random.Range(0, posY.Length);
+            SpawnEnemy(enemyIndex, posIndex);
 
-            float ran = Random.Range(1.0f, 3.0f);
+            // 1.0~4.0 사이의 숫자를 뽑아 랜덤한 시간마다 적을 만들어준다. (점수가 오를때마다 이 사이 시간이 조금씩 짧아지게 만들 것)
+            float ran = Random.Range(1.0f, 4.0f);
             yield return new WaitForSeconds(ran);
         }
     }
 
 
-    void SpawnEnemy(int index)
+    void SpawnEnemy(int enemyIndex, int posIndex)
     {
-        Vector3 pos = new Vector3(transform.position.x, -3.5f, transform.position.z);
-        Instantiate(enemies[index], pos, Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector3 pos = new Vector3(transform.position.x, posY[posIndex], transform.position.z);
+        Instantiate(enemies[enemyIndex], pos, Quaternion.identity);
     }
 }
