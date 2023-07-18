@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigid;
 
     [SerializeField]
-    private float jumpSpeed = 1f;
+    private float jumpSpeed;
     private bool isGround = true;
 
     void Start() 
@@ -33,5 +33,11 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Foreground")
             isGround = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Enemy") {
+            GameManager.instance.SetGameOver();
+        }
     }
 }
