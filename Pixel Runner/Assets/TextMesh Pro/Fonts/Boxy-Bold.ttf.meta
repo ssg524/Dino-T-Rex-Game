@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09ebcb34fc1584568a00fe1df931a764
+guid: 45e7c15e4d2fc4b869c0a0c0043b70c5
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Boxy Bold
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 09ebcb34fc1584568a00fe1df931a764, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

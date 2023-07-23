@@ -12,9 +12,9 @@ public class Foreground : MonoBehaviour
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 
-        if (transform.position.x <= -17.85)
+        if (transform.position.x <= -23.5f)
         {
-            transform.position = new Vector3(17.99f, transform.position.y, 0);
+            transform.position = new Vector3(13.25f, transform.position.y, 0);
         }
     }
 }

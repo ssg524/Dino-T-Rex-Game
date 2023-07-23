@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             hiScoreText.SetText(string.Format("{0:D5}", score));
         }
         gameOverPanel.SetActive(true);
+        new WaitForSeconds(0.1f);
         Time.timeScale = 0;
     }
 

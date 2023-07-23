@@ -27,8 +27,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             int enemyIndex = Random.Range(0, enemies.Length);
-            int posIndex = Random.Range(0, posY.Length);
-            SpawnEnemy(enemyIndex, posIndex);
+            SpawnEnemy(enemyIndex);
 
             // 1.0~4.0 사이의 숫자를 뽑아 랜덤한 시간마다 적을 만들어준다. (점수가 오를때마다 이 사이 시간이 조금씩 짧아지게 만들 것)
             float ran = Random.Range(1.0f, 4.0f);
@@ -37,9 +36,9 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    void SpawnEnemy(int enemyIndex, int posIndex)
+    void SpawnEnemy(int enemyIndex)
     {
-        Vector3 pos = new Vector3(transform.position.x, posY[posIndex], transform.position.z);
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Instantiate(enemies[enemyIndex], pos, Quaternion.identity);
     }
 }
